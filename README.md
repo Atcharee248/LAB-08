@@ -559,6 +559,38 @@ execute next line
 2.	ถ้าค่าที่ผู้ใช้ป้อน น้อยกว่า ค่าที่สุ่มมาได้ ให้พิมพ์ ```“Too Low, You loss!!”```ออกทางหน้าจอ
 3.	ถ้าค่าที่ผู้ใช้ป้อน เท่ากับ ค่าที่สุ่มมาได้ ให้พิมพ์ ```“Okay, You win!!”``` ออกทางหน้าจอ
 
+```
+namespace Lab8
+{
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Console.WriteLine("Random 0 - 9");
+                Console.WriteLine("Enter Number ");
+                Console.WriteLine("\r\n");
+                Console.Write("number : ");
+                int a = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("\r\n");
+                Random random = new Random();
+                int randomNumber1 = random.Next(0, 9);
+                Console.WriteLine("Random  = {0} ", randomNumber1);
+                Console.WriteLine("\r\n");
+                if (a > randomNumber1)
+                {
+                    Console.WriteLine("Too Hight, You loss!!");
+                }
+                if (a < randomNumber1)
+                {
+                    Console.WriteLine("Too Low, You loss!!");
+                }
+                if (a == randomNumber1)
+                    Console.WriteLine("Okay, You win!!");
+            }
+        }
+    }
+```
+<img src="https://github.com/Atcharee248/LAB-08/blob/master/Lab8_6.JPG?raw=true">
 ###1.2.2.	คำสั่ง ```if…else```
 
 เงื่อนไขที่เป็นไปได้ของคำสั่งในการตัดสินใจมีสองทางเสมอ (true และ false) ที่ผ่านมา เราจะเห็นว่า คำสั่ง if เป็นคำสั่งที่เลือกทำเพียงทางเดียว (เฉพาะในกรณีที่เงื่อนไขเป็น true เท่านั้น) หากต้องการให้โปรแกรมทำงานทั้งกรณีที่เงื่อนไขเป็น true และ false เราต้องใช้คำสั่ง if…else โดยมีรูปแบบดังนี้
@@ -607,6 +639,36 @@ this line is always execute
 
 1. ถ้าค่าที่ผู้ใช้ป้อน เท่ากับ ค่าที่สุ่มมาได้ ให้พิมพ์ ```“Hooray, You win!!”``` ออกทางหน้าจอ มิฉะนั้นให้พิมพ์คำว่า ```“Sorry, You loss!!”```
 
+```
+namespace Lab8
+{
+        class Program
+        {
+            static void Main(string[] args)
+            {
+            Console.WriteLine("Random 0 - 9");
+            Console.WriteLine("Enter Number ");
+            Console.WriteLine("\r\n");
+            Console.Write("number : ");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\r\n");
+            Random random = new Random();
+            int randomNumber1 = random.Next(0, 9);
+            Console.WriteLine("Random  = {0} ", randomNumber1);
+            Console.WriteLine("\r\n");
+            if (a == randomNumber1)
+            {
+                Console.WriteLine("Hooray, You win!!");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, You loss!!");
+            }
+        }
+        }
+    }
+```
+<img src="https://github.com/Atcharee248/LAB-08/blob/master/Lab8_7.JPG?raw=true">
 ###1.2.3.	คำสั่ง ```if``` ซ้อนกัน (nested if)
 คำสั่ง ```if``` สามารถเขียนซ้อนกันเป็นชั้นได้ เรียกว่า nested if มีรูปแบบดังนี้
 ####รูปแบบของคำสั่ง nested if
@@ -698,6 +760,41 @@ Grade C
 0-49|	F
 
 3. รูปแบบการพิมพ์คือ score: [sss] grade: [gg] เมื่อ sss คือคะแนน และ gg คือ เกรดที่ได้
+```
+namespace Lab8
+{
+        class Program
+        {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("GPA ");
+            Console.WriteLine("");
+
+            Random random = new Random();
+        int point = random.Next(0, 100);
+        Console.WriteLine("Random  = {0} ", point);
+            Console.WriteLine("\r\n");
+            if (point< 50)
+                Console.WriteLine("Grade F");
+            else if (point ==50 | point< 55)
+                Console.WriteLine("Grade D");
+            else if (point == 55 | point< 60)
+                Console.WriteLine("Grade D+");
+            else if (point == 60 | point< 65)
+                Console.WriteLine("Grade C");
+            else if (point == 65 | point< 70)
+                Console.WriteLine("Grade C+");
+            else if (point == 70 | point< 75)
+                Console.WriteLine("Grade B");
+            else if (point == 75 | point< 80)
+                Console.WriteLine("Grade B+");
+            else
+                Console.WriteLine("Grade A");
+        }
+        }
+    }
+```
+<img src="https://github.com/Atcharee248/LAB-08/blob/master/Lab8_8.JPG?raw=true">
 
 ###1.2.5. คำสั่ง ```switch```
 
@@ -776,6 +873,59 @@ fri|	Friday	|Blue
 sat|	Saturday	|Purple
 อื่นๆ|	 ---|	---
 
+```
+namespace Lab8
+{
+    public class switchLearning
+    {
+        public static void Main()
+        {
+            Console.Write("Input your day name (sun, mon, tue, wed, thu, fri, sat) : ");
+            string gradeString = Console.ReadLine();
+            string day, cl;
+            Console.WriteLine("\r\n");
+            switch (gradeString)
+            {
+                case "sun":
+                    day = "Sunday";
+                    cl = "color Red";
+                    break;
+                case "mon":
+                    day = "Monday";
+                    cl = "color Yellow";
+                    break;
+                case "tue":
+                    day = "Tuesday";
+                    cl = "color Pink";
+                    break;
+                case "wed":
+                    day = "Wednesday";
+                    cl = "color Green";
+                    break;
+                case "thu":
+                    day = "Thursday";
+                    cl = "color Orange";
+                    break;
+                case "fai":
+                    day = "Faiday";
+                    cl = "color Light blue";
+                    break;
+                case "sat":
+                    day = "Saturday";
+                    cl = "color Purple";
+                    break;
+                default:
+                    day = "-";
+                    cl = "-";
+                    break;
+            }
+            Console.WriteLine(day);
+            Console.WriteLine(cl);
+        }
+    }
+}
+```
+<img src="https://github.com/Atcharee248/LAB-08/blob/master/Lab8_9.JPG?raw=true">
 
 ##Reference
 เนื้อหาในส่วนนี้เป็นอ้างอิงสำหรับการเขียนโปรแกรม
